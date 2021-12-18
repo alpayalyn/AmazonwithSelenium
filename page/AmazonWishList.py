@@ -3,7 +3,7 @@ from time import sleep
 from base.configuretest import BaseClass # Thanks to this importing process, I can benefit from the methods defined in BaseClass.
 from page.AmazonProductPage import AmazonProduct
 
-class WishList:
+class AmazonWishList:
 
     PRODUCT_TITLE_WP = (By.CSS_SELECTOR, "//h3[@class='a-size-base']/a").text # Always will take the upper.   
     DELETE_ITEM = (By.NAME, 'submit.deleteItem')
@@ -19,31 +19,3 @@ class WishList:
 
         assert self.PRODUCT_TITLE_PP == self.PRODUCT_TITLE_WP, "Items were added are not the same"
         self.methods.wait_for_element(self.DELETE_ITEM).click()
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-class HomePage(BasePage):
-    """Home Page of Amazon India"""
-    def __init__(self, driver):
-        super().__init__(driver)
-        self.driver.get(TestData.BASE_URL)
-
-    def search(self):
-        self.driver.find_element(*Locators.SEARCH_TEXTBOX).clear()
-        self.enter_text(Locators.SEARCH_TEXTBOX, TestData.SEARCH_TERM)
-        self.click(Locators.SEARCH_SUBMIT_BUTTON)
-

@@ -4,32 +4,21 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.select import Select
-
-from pageObjects.HomePage import HomePage
-
-@pytest.mark.usefixtures("setup")
-class BaseClass:
-    
-    def verifyLinkPresence(self, text):
-        element = WebDriverWait(self.driver, 10).until(
-        EC.presence_of_element_located((By.LINK_TEXT, text)))
-
-    def selectOptionByText(self, locator, text):
-    # We are passing locator as well.
-    # To be able to select any DropDown we can use this method.
-        sel = Select(homePage.getGender())
-        sel.select_by_visible_text(text)
+from selenium import webdriver
 
 
-        # ---------------------------
-
-class BasePage():
+class Setup():
     """This class is the parent class for all the pages in our application."""
     """It contains all common elements and functionalities available to all pages."""
+    WEBSITE = "http://www.amazon.com"
 
     # this function is called every time a new object of the base class is created.
     def __init__(self, driver):
         self.driver=driver
+        self.driver = webdriver.Chrome(executable_path="C:/seleniumdriver/chromedriver")
+        self.driver.maximize_window()
+        self.driver.get(self.WEBSITE)
+        self.wait = WebDriverWait(self.driver, 10)
 
     # this function performs click on web element whose locator is passed to it.
     def click(self, by_locator):

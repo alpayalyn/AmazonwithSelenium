@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 from time import sleep
 from base.configuretest import BaseClass
 
-class AmazonCategoryPage:
+class AmazonCategory:
     """  Website login page for users to logging in """
 
     PAGES = (By.CLASS_NAME ,'a-normal') # There will be more than 1 class with this name so. It should be a list.

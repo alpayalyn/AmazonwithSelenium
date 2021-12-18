@@ -1,5 +1,13 @@
 import unittest
-from test.amaz
+from AmazonwithSelenium.test.test_amazon import Setup
+from AmazonwithSelenium.page.AmazonHomePage import AmazonHome
+from AmazonwithSelenium.page.AmazonLoginPage import AmazonLogin
+from AmazonwithSelenium.page.AmazonSearchPage import AmazonSearch
+from AmazonwithSelenium.page.AmazonCategoryPage import AmazonCategoryPage
+from AmazonwithSelenium.page.AmazonProductPage import AmazonProduct
+from AmazonwithSelenium.page.AmazonWishList import AmazonWishList
+
+
 
 class AmazonAlpayPath(unittest.TestCase, Setup):
     """Test case is:
@@ -17,7 +25,12 @@ class AmazonAlpayPath(unittest.TestCase, Setup):
     """
 
     def setUp(self):
-        Setup.__init(self)
+        Setup.__init__(self)
+
+    def test_amazon(self):
+        self.AmazonLogin.amazon_login()
+        self.AmazonSearch.
+
 
 
 
