@@ -1,15 +1,15 @@
 import unittest
-from AmazonwithSelenium.test.test_amazon import Setup
-from AmazonwithSelenium.page.AmazonHomePage import AmazonHome
-from AmazonwithSelenium.page.AmazonLoginPage import AmazonLogin
-from AmazonwithSelenium.page.AmazonSearchPage import AmazonSearch
-from AmazonwithSelenium.page.AmazonCategoryPage import AmazonCategoryPage
-from AmazonwithSelenium.page.AmazonProductPage import AmazonProduct
-from AmazonwithSelenium.page.AmazonWishList import AmazonWishList
+from test import amazon_setup
+from page.AmazonHomePage import AmazonHomePage
+from page.AmazonLoginPage import AmazonLoginPage
+from page.AmazonSearchPage import AmazonSearchPage
+from page.AmazonCategoryPage import AmazonCategoryPage
+from page.AmazonProductPage import AmazonProductPage
+from page.AmazonWishList import AmazonWishList
 
 
 
-class AmazonAlpayPath(unittest.TestCase, Setup):
+class Test_Amazon(unittest.TestCase, Setup):
     """Test case is:
     1. Go to given URL, Check the page we land is, Homepage or not by Assertion
     2. Open Login screen log into an account.
@@ -25,13 +25,20 @@ class AmazonAlpayPath(unittest.TestCase, Setup):
     """
 
     def setUp(self):
-        Setup.__init__(self)
+        Setup.__init__(self) # TRACK WHERE THE SETUP GOES TO!!!! amazon_setup içinde site açılacak-
 
-    def test_amazon(self):
-        self.AmazonLogin.amazon_login()
+        # Nasıl start vereceksin teste, driver get nereden başlayacak onu belirlemen gerek.
+
+    def test_amazon(self):        
+        self.assertIn(AmazonHomePage.HOME_PAGE_TITLE, self.homePage.driver.title)
+        # AmazonHomePage içerisindeki title değişkenine nasıl ulaşabilirsin onu düşün.
+        # homePage burada instance bir object bunun üzerinden driver.title çekimi var.
+        self.AmazonHomePage.amazon_login()
         self.AmazonSearch.
+        self.assertIn(AmazonHomePage.HOME_PAGE_TITLE, self.homePage.driver.title)
+        self.A
 
-
+        self.assertNotIn(TestData.NO_RESULTS_TEXT,self.searchResultsPage.driver.page_source) # no result and the other text should be fetch from the .py
 
 
 if __name__ == "__main__":

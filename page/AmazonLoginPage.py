@@ -1,7 +1,6 @@
 from selenium.webdriver.common.by import By
 from time import sleep
 from base.configuretest import BaseClass
-from test.amazon_setup import BasePage
 
 class AmazonLogin:
     """Website login page for users to logging in"""
@@ -21,7 +20,6 @@ class AmazonLogin:
     def amazon_login(self):
         """Logging into the account."""
         sleep(2)
-        BasePage
         self.methods.wait_for_element(self.EMAIL).send_keys(self.email)
         self.methods.wait_for_element(self.PASS_EMAIL).click()
         self.methods.wait_for_element(self.PASSWORD).send_keys(self.password)

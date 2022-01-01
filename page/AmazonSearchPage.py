@@ -6,10 +6,13 @@ from base.configuretest import BaseClass
 class AmazonSearch:
     """Website login page for users to logging in"""
     
-    textToSearch = 'samsung'
+    TEXT_TO_BE_SEARCHED = 'samsung'
     SEARCH_BOX = (By.ID, 'twotabsearchtextbox')
     SEARCH_BUTTON = (By.ID, 'nav-search-submit-button')
     SEARCH_RESULTS = (By.CLASS_NAME, ".s-include-content-margin.s-latency-cf-section")
+    NO_RESULTS_TEXT = "No results found."
+
+
 
     def __init__(self, driver):
         
@@ -20,9 +23,8 @@ class AmazonSearch:
         """   
         """
         sleep(2)
-        self.methods.wait_for_element(self.SEARCH_BOX).send_keys(self.textToSearch)
+        self.methods.wait_for_element(self.SEARCH_BOX).send_keys(self.TEXT_TO_BE_SEARCHED)
         self.methods.wait_for_element(self.SEARCH_BUTTON).click()
 
         # Nasıl samsung page'de olup olmadığı kesinleştirilebilir?
-
         
