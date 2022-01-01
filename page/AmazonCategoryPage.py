@@ -33,6 +33,9 @@ class AmazonCategory:
                 self.methods.wait_for_element(self.PAGE).click()
                 break
             i = i + 1            
-        self.methods.wait_for_element(self.PRODUCT_THIRD).click()
+
+    def random_product(self):
+        
+    
         
     
