@@ -1,5 +1,6 @@
 import unittest
 from test import amazon_setup
+from base.configuretest import setup
 from page.AmazonHomePage import AmazonHomePage
 from page.AmazonLoginPage import AmazonLoginPage
 from page.AmazonSearchPage import AmazonSearchPage
@@ -9,7 +10,7 @@ from page.AmazonWishList import AmazonWishList
 
 
 
-class Test_Amazon(unittest.TestCase, Setup):
+class Test_Amazon(unittest.TestCase, setup):
     """Test case is:
     1. Go to given URL, Check the page we land is, Homepage or not by Assertion
     2. Open Login screen log into an account.
