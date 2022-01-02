@@ -1,8 +1,9 @@
 from selenium.webdriver.common.by import By
 from time import sleep
 from base.configuretest import BaseClass
+from page.AmazonHomePage import AmazonHome
 
-class AmazonLogin:
+class AmazonLogin(AmazonHome):
     """Website login page for users to logging in"""
 
     email = 'alpaylui78@gmail.com'
@@ -12,10 +13,8 @@ class AmazonLogin:
     PASSWORD = (By.ID, 'ap_password')
     PASS_PASSWORD = (By.ID, 'signInSubmit')
 
-    def __init__(self, driver):
-        self.driver = driver
-        self.methods = BaseClass(self.driver) # Self driver is being sent, because YOU NEED it. It cant benefit from the driver definition which is in BaseClass?
-
+    def __init__(self):
+        super().__init__()
     
     def amazon_login(self):
         """Logging into the account."""

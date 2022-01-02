@@ -6,6 +6,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 
 
+
 class BaseClass(object):
     """Base class to initialize the base page that will be called from all pages"""
 
@@ -13,7 +14,10 @@ class BaseClass(object):
 
     def __init__(self, driver):
         self.driver = driver
-        self.wait = WebDriverWait(self.driver, 35)
+        self.wait = WebDriverWait(self.driver, 10)
+        self.driver = webdriver.Chrome(executable_path="C:/seleniumdriver/chromedriver")
+        self.driver.maximize_window()
+        self.wait = WebDriverWait(self.driver, 10)
 
     def wait_for_element(self, selector):
         """

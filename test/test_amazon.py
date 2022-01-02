@@ -1,6 +1,4 @@
 import unittest
-from test import amazon_setup
-from base.configuretest import setup
 from page.AmazonHomePage import AmazonHomePage
 from page.AmazonLoginPage import AmazonLoginPage
 from page.AmazonSearchPage import AmazonSearchPage
@@ -10,7 +8,7 @@ from page.AmazonWishList import AmazonWishList
 
 
 
-class Test_Amazon(unittest.TestCase, setup):
+class Test_Amazon(unittest.TestCase, Setup):
     """Test case is:
     1. Go to given URL, Check the page we land is, Homepage or not by Assertion
     2. Open Login screen log into an account.
@@ -31,16 +29,19 @@ class Test_Amazon(unittest.TestCase, setup):
         # Nasıl start vereceksin teste, driver get nereden başlayacak onu belirlemen gerek.
 
     def test_amazon(self):        
-        self.assertIn(AmazonHomePage.HOME_PAGE_TITLE, self.homePage.driver.title)
+
+        
+        self.AmazonHomePself.assertIn(AmazonHomePage.HOME_PAGE_TITLE, self.homePage.driver.title)
         # AmazonHomePage içerisindeki title değişkenine nasıl ulaşabilirsin onu düşün.
-        # homePage burada instance bir object bunun üzerinden driver.title çekimi var.
-        self.AmazonHomePage.amazon_login()
+        # homePage buradage.amazon_login()
         self.AmazonSearch.
         self.assertIn(AmazonHomePage.HOME_PAGE_TITLE, self.homePage.driver.title)
         self.A
 
         self.assertNotIn(TestData.NO_RESULTS_TEXT,self.searchResultsPage.driver.page_source) # no result and the other text should be fetch from the .py
 
+    def tearDown(self):
+        self.driver.quit()
 
 if __name__ == "__main__":
     unittest.main()

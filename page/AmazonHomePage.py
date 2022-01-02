@@ -11,17 +11,15 @@ class AmazonHome:
 
 
 
-    def __init__(self, driver):
+    def __init__(self, driver): # bu driver nereden geliyor, bir noktadan gelmek zorunda mı?
         
         self.driver = driver
         self.methods = BaseClass(self.driver) # Self driver is being sent, because YOU NEED it. It cant benefit from the driver definition which is in BaseClass?
-
     
     def test_home_page_loaded_successfully(self):
         # instantiate an object of HomePage class. Remember when the constructor of HomePage class is called
         # it opens up the browser and navigates to Home Page of the site under test.
-        # 
-        self.homePage = HomePage(self.driver)
+        self.methods.driver.get(self.BASE_URL) # Open the web page
         # assert if the title of Home Page contains Amazon.com
 
     def navigating_to_login_page(self):

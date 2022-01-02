@@ -6,7 +6,7 @@ class AmazonCategory:
     """  Website login page for users to logging in """
 
     PAGES = (By.CLASS_NAME ,'a-normal') # There will be more than 1 class with this name so. It should be a list.
-    PRODUCT_THIRD = (By.CSS_SELECTOR, "div[data-cel-widget='search_result_0']")
+    PRODUCT_THIRD = (By.CLASS_NAME, ".s-result-item.s-asin") # [2] will be  chosen
     PRODUCT_LIST = (By.XPATH, "//span[@class='a-size-medium.a-color-base']") # product lists on category page. need to get their text version.
     
 
@@ -34,8 +34,8 @@ class AmazonCategory:
                 break
             i = i + 1            
 
-    def random_product(self):
+    def third_product_select(self):
+        self.methods.wait_for_element(self.PRODUCT_THIRD)[2].click()
         
-    
         
     
